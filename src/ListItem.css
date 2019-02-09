@@ -1,0 +1,96 @@
+.task {
+    position: relative;
+    padding: 0 20px 0 40px;
+    background-color: white;
+    border-top: 1px solid rgb(65, 65, 65);
+}
+.task > input {
+  display: none;
+}
+.status-check {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  vertical-align: top;
+  height: 30px;
+  width: 30px;
+  margin: 0;
+  border: 1px solid black;
+  border-radius: 2px;
+  background-color: rgb(225, 225, 225);
+}
+.task > input:checked + .status-check {
+  background-color: rgb(65, 65, 65);
+}
+.task > input:checked + .status-check::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  height: 18px;
+  width: 10px;
+  left: 9px;
+  bottom: 7px;
+  border-right: 4px solid white;
+  border-bottom: 4px solid white;
+  transform: rotate(45deg);
+}
+.task-display {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    padding: 15px 0;
+    margin-left: 5px;
+    font-size: 30px;
+    text-align: justify;
+    word-break: break-all;
+    user-select: none;
+}
+.delete-button {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.delete-button::before {
+    position: absolute;
+    content: '\274c';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: 25px;
+    text-align: center;
+    font-size: 22px;
+    color: rgb(200, 0, 0);
+}
+.task:hover .delete-button {
+display: inline-block;
+}
+.task-edit {
+    display: none;
+    height: 64px;
+    width: 100%;
+    font-size: 30px;
+    outline-color: rgb(55, 85, 255);
+}
+.editing {
+    padding-left: 40px;
+    border-top: 1px solid rgb(65, 65, 65);
+    background-color: white;
+}
+.editing > .task {
+    display: none;
+}
+.editing > .task-edit{
+    display: block;
+}
+.completed  .task-display {
+  text-decoration: line-through;
+  color: rgb(160, 160, 160);
+}
